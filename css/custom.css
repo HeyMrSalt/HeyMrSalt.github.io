@@ -1,0 +1,25 @@
+/* 修正：強制行動版選單在深色模式下使用深色文字 */
+html.dark #menu-panel .nav-portfolio a {
+  color: #2c3e50 !important;
+}
+
+/* --- 頁尾連結強調樣式 (雙模式版本) --- */
+
+/* 基礎樣式 (對兩種模式都生效) */
+.powered-by-link {
+  font-weight: 600;      /* 加粗 */
+  color: inherit;        /* 預設顏色繼承 (淺色模式變灰，深色模式變淺灰) */
+  transition: color 0.2s ease-in-out; /* 增加過渡動畫 */
+}
+
+/* 淺色模式的 Hover 效果 */
+.powered-by-link:hover {
+  color: #de7441; /* 變成橘色 */
+}
+
+/* ★ 關鍵修正！★ 
+   針對深色模式，我們用一個官階更高的選擇器，來強化 Hover 效果 */
+html.dark .powered-by-link:hover {
+  color: #de7441; /* 同樣指定為橘色 */
+}
+
