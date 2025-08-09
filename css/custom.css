@@ -1,25 +1,46 @@
-/* 修正：強制行動版選單在深色模式下使用深色文字 */
-html.dark #menu-panel .nav-portfolio a {
-  color: #2c3e50 !important;
+/* CTF 隱寫術文字樣式 */
+
+/* 淺色模式：使用你找到的淺色背景碼 */
+.hidden-text { 
+  color: rgb(255, 255, 255) !important; /* From your previous data */
 }
 
-/* --- 頁尾連結強調樣式 (雙模式版本) --- */
-
-/* 基礎樣式 (對兩種模式都生效) */
-.powered-by-link {
-  font-weight: 600;      /* 加粗 */
-  color: inherit;        /* 預設顏色繼承 (淺色模式變灰，深色模式變淺灰) */
-  transition: color 0.2s ease-in-out; /* 增加過渡動畫 */
+/* 深色模式：使用你找到的深色背景碼 */
+html.dark .hidden-text { 
+  color: rgb(24, 24, 27) !important; /* <-- Your newly found dark color */
 }
 
-/* 淺色模式的 Hover 效果 */
-.powered-by-link:hover {
-  color: #de7441; /* 變成橘色 */
+/* 當使用者反白選取文字時，讓文字浮現出來 */
+.hidden-text::selection {
+  color: white !important;
+  background: black !important;
 }
 
-/* ★ 關鍵修正！★ 
-   針對深色模式，我們用一個官階更高的選擇器，來強化 Hover 效果 */
-html.dark .powered-by-link:hover {
-  color: #de7441; /* 同樣指定為橘色 */
+
+
+/* About 頁面專屬的標題樣式 (橘色左標記、全寬版本) */
+.boxed-title {
+  display: flex !important;
+  align-items: center !important; /* 讓文字在方框內垂直置中 (可選，但效果好) */
+
+  /* --- 保留我們原有的樣式 --- */
+  background-color: #de7441 !important;
+  color: white !important;
+  border-radius: 0.5rem;
+  border: none !important;
+  font-weight: 600;
+  padding: 0.8rem 1rem !important; /* 內距現在會作用在 Flex 容器上 */
+}
+
+/* 深色模式下，橘色依然很顯眼，所以通常不需要特別調整 */
+html.dark .boxed-title {
+  /* 如果你覺得深色模式下橘色太暗，可以換成下面這個亮一點的橘色 */
+  /* border-left-color: #e5875c; */ 
+}
+
+/* 讓帶框/填滿標題後面的「所有」段落，向右縮排對齊標題文字 (使用 ~ 修正) */
+.boxed-title ~ p,
+.boxed-title-filled ~ p {
+  padding-left: 1rem; /* 這個值應該要跟你標題的左右內距 (padding) 一樣 */
 }
 
