@@ -4,6 +4,7 @@
 html.dark #menu-panel .nav-portfolio a {
   color: #2c3e50 !important;
 }
+/* -------------------------- */
 
 /* --- 頁尾連結強調樣式 --- */
 .powered-by-link {
@@ -15,6 +16,7 @@ html.dark #menu-panel .nav-portfolio a {
 html.dark .powered-by-link:hover {
   color: #de7441;
 }
+/* -------------------------- */
 
 /* --- About 頁面專用樣式 --- */
 
@@ -29,6 +31,8 @@ html.dark .hidden-text {
   color: white !important;
   background: black !important;
 }
+/* -------------------------- */
+
 
 /* --- 兩種可選用的標題樣式 --- */
 
@@ -57,3 +61,24 @@ html.dark .hidden-text {
 .boxed-title-filled ~ p {
   padding-left: 1rem;
 }
+/* -------------------------- */
+
+
+
+
+/* --- 首頁文章縮圖樣式 (兩欄式佈局版本) --- */
+.post-cover-image {
+  width: 100%;
+  /* 讓圖片保持 16:9 的黃金比例，高度會自動計算 */
+  aspect-ratio: 16 / 9;
+  object-fit: cover; /* 確保圖片填滿空間但不變形 */
+  transition: all 0.3s ease-in-out;
+}
+
+/* 滑鼠移上去時的互動效果 */
+a:hover .post-cover-image {
+  opacity: 0.65;
+  transform: scale(1.03);
+}
+
+/* -------------------------- */
